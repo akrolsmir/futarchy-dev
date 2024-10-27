@@ -2,7 +2,7 @@
 
 import { PredictionPair } from '@/types'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 // Component to render a single gauge
 function GaugeChart({ pair }: { pair: PredictionPair }) {
@@ -11,9 +11,17 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
   const difference = Math.abs(harrisPct - trumpPct)
   const isHarrisHigher = harrisPct > trumpPct
 
-  // Calculate angles for gauge needles (180 degrees = 100%)
-  const harrisAngle = (harrisPct / 100) * 180
-  const trumpAngle = (trumpPct / 100) * 180
+  const [harrisAngle, setHarrisAngle] = useState(0)
+  const [trumpAngle, setTrumpAngle] = useState(0)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setHarrisAngle((harrisPct / 100) * 180)
+      setTrumpAngle((trumpPct / 100) * 180)
+    }, 100)
+
+    return () => clearTimeout(timer)
+  }, [harrisPct, trumpPct])
 
   return (
     <div className="flex flex-col bg-gray-900 rounded-lg p-4 text-white">
@@ -24,13 +32,13 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
 
         {/* Harris needle (blue) */}
         <div
-          className="absolute bottom-0 left-1/2 w-1 h-20 bg-blue-500 origin-bottom"
+          className="absolute bottom-0 left-1/2 w-1 h-20 bg-blue-500 origin-bottom transition-transform duration-1000 ease-out"
           style={{ transform: `rotate(${harrisAngle - 90}deg)` }}
         />
 
         {/* Trump needle (red) */}
         <div
-          className="absolute bottom-0 left-1/2 w-1 h-20 bg-red-500 origin-bottom"
+          className="absolute bottom-0 left-1/2 w-1 h-20 bg-red-500 origin-bottom transition-transform duration-1000 ease-out"
           style={{ transform: `rotate(${trumpAngle - 90}deg)` }}
         />
 
@@ -94,10 +102,11 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
 export default function Gauges({ markets }: { markets: PredictionPair[] }) {
   return (
     <div className="min-h-screen bg-black p-8">
-      {/* Grid layout: 2 columns on mobile, 4 columns on desktop */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {markets.map((pair, i) => (
-          <GaugeChart key={i} pair={pair} />
+          <div key={i} className="animate-fadeIn">
+            <GaugeChart pair={pair} />
+          </div>
         ))}
       </div>
     </div>
