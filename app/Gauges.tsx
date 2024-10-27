@@ -11,17 +11,21 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
   const difference = Math.abs(harrisPct - trumpPct)
   const isHarrisHigher = harrisPct > trumpPct
 
-  const [harrisAngle, setHarrisAngle] = useState(0)
-  const [trumpAngle, setTrumpAngle] = useState(0)
+  const harrisAngleFinal = (harrisPct / 100) * 180
+  const trumpAngleFinal = (trumpPct / 100) * 180
+  const midpoint = (harrisAngleFinal + trumpAngleFinal) / 2
+
+  const [harrisAngle, setHarrisAngle] = useState(midpoint)
+  const [trumpAngle, setTrumpAngle] = useState(midpoint)
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setHarrisAngle((harrisPct / 100) * 180)
-      setTrumpAngle((trumpPct / 100) * 180)
+      setHarrisAngle(harrisAngleFinal)
+      setTrumpAngle(trumpAngleFinal)
     }, 100)
 
     return () => clearTimeout(timer)
-  }, [harrisPct, trumpPct])
+  }, [harrisAngleFinal, trumpAngleFinal])
 
   return (
     <div className="flex flex-col bg-gray-900 rounded-lg p-4 text-white">
