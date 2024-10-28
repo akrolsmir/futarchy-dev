@@ -50,7 +50,7 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
       <div className="relative w-48 h-24 mx-auto">
         {/* Harris confidence interval arc */}
         <div
-          className="absolute bottom-1 left-1/2 w-32 h-32 -ml-16 -mb-16"
+          className="absolute bottom-1 left-1/2 w-40 h-40 -ml-20 -mb-20"
           style={{
             background: `conic-gradient(
               transparent ${harrisLowerBoundAngle}deg,
@@ -65,7 +65,7 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
 
         {/* Trump confidence interval arc */}
         <div
-          className="absolute bottom-1 left-1/2 w-32 h-32 -ml-16 -mb-16"
+          className="absolute bottom-1 left-1/2 w-40 h-40 -ml-20 -mb-20"
           style={{
             background: `conic-gradient(
               transparent ${trumpLowerBoundAngle}deg,
@@ -80,13 +80,13 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
 
         {/* Harris needle (blue) */}
         <div
-          className="absolute bottom-1 left-1/2 w-1 h-16 bg-blue-500 origin-bottom transition-transform duration-1000 ease-out"
+          className="absolute bottom-1 left-1/2 w-1 h-20 bg-blue-500 origin-bottom transition-transform duration-1000 ease-out"
           style={{ transform: `translate(-50%, 0) rotate(${harrisAngle - 90}deg)` }}
         />
 
         {/* Trump needle (red) */}
         <div
-          className="absolute bottom-1 left-1/2 w-1 h-16 bg-red-500 origin-bottom transition-transform duration-1000 ease-out"
+          className="absolute bottom-1 left-1/2 w-1 h-20 bg-red-500 origin-bottom transition-transform duration-1000 ease-out"
           style={{ transform: `translate(-50%, 0) rotate(${trumpAngle - 90}deg)` }}
         />
 
