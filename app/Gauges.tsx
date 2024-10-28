@@ -4,6 +4,10 @@ import { PredictionPair } from '@/types'
 import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
 
+// const hurdleRate = 0.0541 // 5% annualized after fees
+const hurdleRate = 0.058 // 10% annualized after fees
+const pTrump = 0.61 // todo grab programmatically
+
 // Component to render a single gauge
 function GaugeChart({ pair }: { pair: PredictionPair }) {
   const harrisPct = Math.round((pair.harrisData?.probability || 0) * 100)
@@ -14,33 +18,76 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
   const harrisAngleFinal = (harrisPct / 100) * 180
   const trumpAngleFinal = (trumpPct / 100) * 180
   const midpoint = (harrisAngleFinal + trumpAngleFinal) / 2
+  // probabilities
+  const harrisUpperBound = Math.min(1, (pair.harrisData?.probability ?? 0) + hurdleRate * (pair.harrisData?.probability ?? 0) / (1 - pTrump))
+  const harrisLowerBound = Math.max(0, (pair.harrisData?.probability ?? 0) - hurdleRate * (1 - (pair.harrisData?.probability ?? 0)) / (1 - pTrump))
+  const trumpUpperBound = Math.min(1, (pair.trumpData?.probability ?? 0) + hurdleRate * (pair.trumpData?.probability ?? 0) / pTrump)
+  const trumpLowerBound = Math.max(0, (pair.trumpData?.probability ?? 0) - hurdleRate * (1 - (pair.trumpData?.probability ?? 0)) / pTrump)
 
   const [harrisAngle, setHarrisAngle] = useState(midpoint)
   const [trumpAngle, setTrumpAngle] = useState(midpoint)
+  const [harrisUpperBoundAngle, setHarrisUpperBoundAngle] = useState(midpoint)
+  const [harrisLowerBoundAngle, setHarrisLowerBoundAngle] = useState(midpoint)
+  const [trumpUpperBoundAngle, setTrumpUpperBoundAngle] = useState(midpoint)
+  const [trumpLowerBoundAngle, setTrumpLowerBoundAngle] = useState(midpoint)
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setHarrisAngle(harrisAngleFinal)
       setTrumpAngle(trumpAngleFinal)
+      setHarrisUpperBoundAngle(harrisUpperBound * 180)
+      setHarrisLowerBoundAngle(harrisLowerBound * 180)
+      setTrumpUpperBoundAngle(trumpUpperBound * 180)
+      setTrumpLowerBoundAngle(trumpLowerBound * 180)
     }, 100)
 
     return () => clearTimeout(timer)
-  }, [harrisAngleFinal, trumpAngleFinal])
+  }, [harrisAngleFinal, trumpAngleFinal, harrisUpperBoundAngle, harrisLowerBoundAngle, trumpUpperBoundAngle, trumpLowerBoundAngle])
 
   return (
     <div className="flex flex-col bg-gray-900 rounded-lg p-4 text-white">
       <h3 className="text-sm mb-6 h-12 leading-tight">{pair.title}</h3>
       <div className="relative w-48 h-24 mx-auto">
+        {/* Harris confidence interval arc */}
+        <div
+          className="absolute bottom-1 left-1/2 w-32 h-32 -ml-16 -mb-16"
+          style={{
+            background: `conic-gradient(
+              transparent ${harrisLowerBoundAngle}deg,
+              rgba(59, 130, 246, 0.2) ${harrisLowerBoundAngle}deg,
+              rgba(59, 130, 246, 0.2) ${harrisUpperBoundAngle}deg,
+              transparent ${harrisUpperBoundAngle}deg
+            )`,
+            borderRadius: '50%',
+            transform: 'rotate(-90deg)',
+          }}
+        />
+
+        {/* Trump confidence interval arc */}
+        <div
+          className="absolute bottom-1 left-1/2 w-32 h-32 -ml-16 -mb-16"
+          style={{
+            background: `conic-gradient(
+              transparent ${trumpLowerBoundAngle}deg,
+              rgba(239, 68, 68, 0.2) ${trumpLowerBoundAngle}deg,
+              rgba(239, 68, 68, 0.2) ${trumpUpperBoundAngle}deg,
+              transparent ${trumpUpperBoundAngle}deg
+            )`,
+            borderRadius: '50%',
+            transform: 'rotate(-90deg)',
+          }}
+        />
+
         {/* Harris needle (blue) */}
         <div
           className="absolute bottom-1 left-1/2 w-1 h-16 bg-blue-500 origin-bottom transition-transform duration-1000 ease-out"
-          style={{ transform: `rotate(${harrisAngle - 90}deg)` }}
+          style={{ transform: `translate(-50%, 0) rotate(${harrisAngle - 90}deg)` }}
         />
 
         {/* Trump needle (red) */}
         <div
           className="absolute bottom-1 left-1/2 w-1 h-16 bg-red-500 origin-bottom transition-transform duration-1000 ease-out"
-          style={{ transform: `rotate(${trumpAngle - 90}deg)` }}
+          style={{ transform: `translate(-50%, 0) rotate(${trumpAngle - 90}deg)` }}
         />
 
         {/* Gauge background */}
