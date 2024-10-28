@@ -78,6 +78,12 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
           }}
         />
 
+        {/* put a full-opacity trump needle first, then a half-opacity one on top; so it looks normal when not overlapping, but don't fully cover Harris when it does overlap */}
+        <div
+          className="absolute bottom-1 left-1/2 w-1 h-20 bg-red-500 origin-bottom transition-transform duration-1000 ease-out"
+          style={{ transform: `translate(-50%, 0) rotate(${trumpAngle - 90}deg)` }}
+        />
+
         {/* Harris needle (blue) */}
         <div
           className="absolute bottom-1 left-1/2 w-1 h-20 bg-blue-500 origin-bottom transition-transform duration-1000 ease-out"
@@ -86,7 +92,7 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
 
         {/* Trump needle (red) */}
         <div
-          className="absolute bottom-1 left-1/2 w-1 h-20 bg-red-500 origin-bottom transition-transform duration-1000 ease-out"
+          className="absolute bottom-1 left-1/2 w-1 h-20 bg-red-500/50 origin-bottom transition-transform duration-1000 ease-out"
           style={{ transform: `translate(-50%, 0) rotate(${trumpAngle - 90}deg)` }}
         />
 
