@@ -31,20 +31,20 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
     <div className="flex flex-col bg-gray-900 rounded-lg p-4 text-white">
       <h3 className="text-sm mb-6 h-12 leading-tight">{pair.title}</h3>
       <div className="relative w-48 h-24 mx-auto">
-        {/* Gauge background */}
-        <div className="absolute w-full h-full rounded-t-full border-4 border-gray-700" />
-
         {/* Harris needle (blue) */}
         <div
-          className="absolute bottom-0 left-1/2 w-1 h-20 bg-blue-500 origin-bottom transition-transform duration-1000 ease-out"
+          className="absolute bottom-1 left-1/2 w-1 h-16 bg-blue-500 origin-bottom transition-transform duration-1000 ease-out"
           style={{ transform: `rotate(${harrisAngle - 90}deg)` }}
         />
 
         {/* Trump needle (red) */}
         <div
-          className="absolute bottom-0 left-1/2 w-1 h-20 bg-red-500 origin-bottom transition-transform duration-1000 ease-out"
+          className="absolute bottom-1 left-1/2 w-1 h-16 bg-red-500 origin-bottom transition-transform duration-1000 ease-out"
           style={{ transform: `rotate(${trumpAngle - 90}deg)` }}
         />
+
+        {/* Gauge background */}
+        <div className="absolute w-full h-full rounded-t-full border-4 border-gray-700" />
 
         {/* Percentage difference */}
         <div
