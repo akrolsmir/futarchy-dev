@@ -91,7 +91,7 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
         />
 
         {/* Gauge background */}
-        <div className="absolute w-full h-full rounded-t-full border-4 border-gray-700" />
+        <div className="absolute w-full h-full rounded-t-full border-4 border-gray-700" style={{ marginTop: '-2px' }} />
 
         {/* Percentage difference */}
         <div
