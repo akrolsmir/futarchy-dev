@@ -5,24 +5,57 @@ import { PredictionPair } from '@/types'
 // Market data array
 const MARKETS: PredictionPair[] = [
   {
+    title: 'Will the inflation rate in 2025 be below 2.5%? (Current 3.2%)',
+    harrisSlug: 'if-harris-wins-the-election-will-th',
+    trumpSlug: 'if-trump-wins-the-election-will-the',
+  },
+  // TODO: something about GDP, maybe this one but nonbinary is more annoying, could be worth making a new one https://manifold.markets/Tetraspace/if-donald-trump-is-elected-presiden-ug8yle06z9
+  {
     title: 'Will undocumented immigration at the southern border go down?',
     harrisSlug: 'if-harris-wins-will-undocumented-im',
     trumpSlug: 'if-trump-wins-will-immigration-go-d',
   },
   {
-    title: 'Will the president appoint another SCOTUS Justice before 2027?',
-    harrisSlug: 'if-harris-wins-will-she-appoint-ano',
-    trumpSlug: 'if-trump-wins-will-he-appoint-anoth',
+    title: 'Will there be a ceasefire in Ukraine before the 2026 midterms?',
+    harrisSlug: 'if-harris-is-elected-will-there-be-1bw27ghde1',
+    trumpSlug: 'if-trump-is-elected-will-there-be-a-40ca39e5dcec',
   },
+  // TODO: something about Israel/Gaza/Iran, maybe fatalities by EoY 2025 or something
+  {
+    title: 'Gallup satisfaction poll greater than Obama',
+    harrisSlug: 'if-harris-becomes-president-will-sh',
+    trumpSlug: 'if-trump-becomes-president-will-he',
+  },
+  // TODO: something about abortion
+  {
+    title: 'Will Donald Trump serve time in 2025?',
+    harrisSlug: 'if-donald-trump-loses-the-election',
+    trumpSlug: 'if-donald-trump-wins-the-election-w',
+  },
+  {
+    title: 'Will gas prices stay under $4 a gallon before the midterms?',
+    harrisSlug: 'if-harris-becomes-president-will-ga-rpkm0uqss8',
+    trumpSlug: 'if-trump-becomes-president-will-gas',
+  },
+  // TODO: something about poverty levels
+  // TODO: something about expected federal deficit EoY 2026
   {
     title: 'Will marijuana be federally rescheduled from Schedule 1 drug?',
     harrisSlug: 'if-harris-wins-will-marijuana-be-fe',
     trumpSlug: 'if-trump-wins-will-marijuana-be-fed',
   },
+  // move this one up if we don't end up adding a GDP market
   {
-    title: 'Will there be a ceasefire in Ukraine before the 2026 midterms?',
-    harrisSlug: 'if-harris-is-elected-will-there-be-1bw27ghde1',
-    trumpSlug: 'if-trump-is-elected-will-there-be-a-40ca39e5dcec',
+    title:
+      'Will the US enter a recession before 2027? (as measured by Sahm rule)',
+    harrisSlug: 'if-harris-wins-will-the-us-enter-a',
+    trumpSlug: 'if-trump-wins-will-the-us-enter-a-r',
+  },
+  // TODO: something about electricity prices?
+  {
+    title: 'Will the president appoint another SCOTUS Justice before 2027?',
+    harrisSlug: 'if-harris-wins-will-she-appoint-ano',
+    trumpSlug: 'if-trump-wins-will-he-appoint-anoth',
   },
   {
     title:
@@ -31,35 +64,9 @@ const MARKETS: PredictionPair[] = [
     trumpSlug: 'if-trump-is-elected-will-there-be-a-01a15c4aa239',
   },
   {
-    title: 'Will gas prices stay under $4 a gallon before the midterms?',
-    harrisSlug: 'if-harris-becomes-president-will-ga-rpkm0uqss8',
-    trumpSlug: 'if-trump-becomes-president-will-gas',
-  },
-  {
-    title: 'Will the inflation rate in 2025 be below 2.5%? (Current 3.2%)',
-    harrisSlug: 'if-harris-wins-the-election-will-th',
-    trumpSlug: 'if-trump-wins-the-election-will-the',
-  },
-  {
-    title:
-      'Will the US enter a recession before 2027? (as measured by Sahm rule)',
-    harrisSlug: 'if-harris-wins-will-the-us-enter-a',
-    trumpSlug: 'if-trump-wins-will-the-us-enter-a-r',
-  },
-  {
-    title: 'Gallup satisfaction poll greater than Obama',
-    harrisSlug: 'if-harris-becomes-president-will-sh',
-    trumpSlug: 'if-trump-becomes-president-will-he',
-  },
-  {
     title: 'Will annual US CO2 emissions be below 4.5 billion tons in 2030?',
     harrisSlug: 'carbon-brief-forecast-if-harris-win',
     trumpSlug: 'carbon-brief-forecast-if-trump-wins',
-  },
-  {
-    title: 'Will Donald Trump serve time in 2025?',
-    harrisSlug: 'if-donald-trump-loses-the-election',
-    trumpSlug: 'if-donald-trump-wins-the-election-w',
   },
 ]
 
