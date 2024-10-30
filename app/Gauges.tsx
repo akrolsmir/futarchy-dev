@@ -45,7 +45,7 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
   }, [harrisAngleFinal, trumpAngleFinal, harrisUpperBoundAngle, harrisLowerBoundAngle, trumpUpperBoundAngle, trumpLowerBoundAngle])
 
   return (
-    <div className="flex flex-col bg-gray-900 rounded-lg p-4 text-white">
+    <div className="flex flex-col bg-foreground rounded-lg p-4 text-white">
       <h3 className="text-sm mb-6 h-12 leading-tight">{pair.title}</h3>
       <div className="relative w-48 h-24 mx-auto">
         {/* Harris confidence interval arc */}
@@ -158,7 +158,7 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
 
 export default function Gauges({ markets }: { markets: PredictionPair[] }) {
   return (
-    <div className="min-h-screen bg-black p-8">
+    <div className="min-h-screen p-8">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {markets.map((pair, i) => (
           <div key={i} className="animate-fadeIn">
