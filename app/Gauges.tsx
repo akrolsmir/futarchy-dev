@@ -158,7 +158,7 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
 
 export default function Gauges({ markets }: { markets: PredictionPair[] }) {
   return (
-    <div className="min-h-screen p-8">
+    <div className="p-8">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {markets.map((pair, i) => (
           <div key={i} className="animate-fadeIn">
