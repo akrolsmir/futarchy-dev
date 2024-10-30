@@ -21,17 +21,21 @@ const MARKETS: PredictionPair[] = [
     trumpSlug: 'if-trump-is-elected-will-there-be-a-40ca39e5dcec',
   },
   // TODO: something about Israel/Gaza/Iran, maybe fatalities by EoY 2025 or something
+  /* this one isn't real money yet
   {
     title: 'Gallup satisfaction poll greater than Obama',
     harrisSlug: 'if-harris-becomes-president-will-sh',
     trumpSlug: 'if-trump-becomes-president-will-he',
   },
+  */
   // TODO: something about abortion
+  /* this one isn't real money yet
   {
     title: 'Will Donald Trump serve time in 2025?',
     harrisSlug: 'if-donald-trump-loses-the-election',
     trumpSlug: 'if-donald-trump-wins-the-election-w',
   },
+  */
   {
     title: 'Will gas prices stay under $4 a gallon before the midterms?',
     harrisSlug: 'if-harris-becomes-president-will-ga-rpkm0uqss8',
@@ -39,11 +43,13 @@ const MARKETS: PredictionPair[] = [
   },
   // TODO: something about poverty levels
   // TODO: something about expected federal deficit EoY 2026
+  /* this one isn't real money yet
   {
     title: 'Will marijuana be federally rescheduled from Schedule 1 drug?',
     harrisSlug: 'if-harris-wins-will-marijuana-be-fe',
     trumpSlug: 'if-trump-wins-will-marijuana-be-fed',
   },
+  */
   // move this one up if we don't end up adding a GDP market
   {
     title:
@@ -52,22 +58,28 @@ const MARKETS: PredictionPair[] = [
     trumpSlug: 'if-trump-wins-will-the-us-enter-a-r',
   },
   // TODO: something about electricity prices?
+  /* this one isn't real money yet
   {
     title: 'Will the president appoint another SCOTUS Justice before 2027?',
     harrisSlug: 'if-harris-wins-will-she-appoint-ano',
     trumpSlug: 'if-trump-wins-will-he-appoint-anoth',
   },
+  */
+  /* this one isn't real money yet
   {
     title:
       'Will there be an executive order or legislation focused on AI before the 2026 midterms?',
     harrisSlug: 'if-harris-is-elected-will-there-be-uve99bjbbo',
     trumpSlug: 'if-trump-is-elected-will-there-be-a-01a15c4aa239',
   },
+  */
+  /* this one isn't real money yet
   {
     title: 'Will annual US CO2 emissions be below 4.5 billion tons in 2030?',
     harrisSlug: 'carbon-brief-forecast-if-harris-win',
     trumpSlug: 'carbon-brief-forecast-if-trump-wins',
   },
+  */
 ]
 
 async function fetchMarketData() {
