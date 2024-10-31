@@ -69,8 +69,11 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
 
   return (
     <div className="flex flex-col bg-foreground rounded-lg p-4 text-white min-w-[280px]">
-      <h3 className="mb-8 h-12 leading-tight font-bold">{pair.title}</h3>
-      <div className="relative w-48 h-24 mx-auto">
+      <h3 className="mb-1 leading-tight font-bold text-lg">{pair.title}</h3>
+      <p className="text-xs text-gray-400 font-light leading-snug h-6">
+        {pair.description}
+      </p>
+      <div className="relative w-48 h-24 mx-auto mt-12">
         {/* Harris confidence interval arc */}
         <div
           className="absolute bottom-1 left-1/2 w-40 h-40 -ml-20 -mb-20"
@@ -133,7 +136,7 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
 
         {/* Percentage difference */}
         <div
-          className={`flex flex-row items-center gap-2 absolute -top-8 left-1/2 -translate-x-1/2 font-bold ${
+          className={`flex flex-row items-center gap-1 absolute -top-10 left-1/2 -translate-x-1/2 font-bold ${
             isHarrisHigher ? 'text-blue-300' : 'text-red-300'
           }`}
         >
@@ -177,20 +180,21 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
       {/* Market stats */}
       <div className="mt-2 text-xs text-gray-400 flex justify-between">
         <span>
-          Vol: $
+          $
           {Math.round(
             (pair.harrisData?.volume || 0) +
               (pair.harrisManaData?.volume || 0) / 100 +
               (pair.trumpManaData?.volume || 0) / 100 +
               (pair.trumpData?.volume || 0)
-          )}
+          )}{' '}
+          traded
         </span>
         <span>
           {(pair.harrisData?.uniqueBettorCount || 0) +
             (pair.harrisManaData?.uniqueBettorCount || 0) +
             (pair.trumpManaData?.uniqueBettorCount || 0) +
             (pair.trumpData?.uniqueBettorCount || 0)}{' '}
-          bettors
+          traders
         </span>
       </div>
     </div>

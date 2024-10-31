@@ -5,18 +5,23 @@ import { PredictionPair } from '@/types'
 // Market data array
 const MARKETS: PredictionPair[] = [
   {
-    title: 'Will 2025 inflation be below 2.5%? (Current\u00A03.2%)',
+    // title: 'Will 2025 inflation be below 2.5%? (Current\u00A03.2%)',
+    title: 'Will inflation in 2025 be below 2.5%?',
+    description: 'Currently\u00A02.4%, per Bureau of Labor Statistics',
     harrisSlug: 'if-harris-wins-the-election-will-th',
     trumpSlug: 'if-trump-wins-the-election-will-the',
   },
   // TODO: something about GDP, maybe this one but nonbinary is more annoying, could be worth making a new one https://manifold.markets/Tetraspace/if-donald-trump-is-elected-presiden-ug8yle06z9
   {
-    title: 'Will undocumented immigration at the southern border go down?',
+    title: 'Will undocumented immigration go down?',
+    description: '2025 vs 2024 southwest land border encounters, per US CBP',
     harrisSlug: 'if-harris-wins-will-undocumented-im',
     trumpSlug: 'if-trump-wins-will-immigration-go-d',
   },
   {
-    title: 'Will there be a ceasefire in Ukraine before Nov\u00A02026?',
+    title: 'Will there be a ceasefire in Ukraine?',
+    description:
+      '30 days with <100 Russian soldier fatalities before Nov 2026, per Ukraine Ministry of Defence',
     harrisSlug: 'if-harris-is-elected-will-there-be-1bw27ghde1',
     trumpSlug: 'if-trump-is-elected-will-there-be-a-40ca39e5dcec',
   },
@@ -37,7 +42,9 @@ const MARKETS: PredictionPair[] = [
   },
   */
   {
-    title: 'Will gas prices stay under $4 a gallon through Nov\u00A02026?',
+    title: 'Will gas prices stay under $4 a gallon?',
+    description:
+      'US monthly average (currently $3.26), per Energy Information Administration',
     harrisSlug: 'if-harris-becomes-president-will-ga-rpkm0uqss8',
     trumpSlug: 'if-trump-becomes-president-will-gas',
   },
@@ -52,8 +59,8 @@ const MARKETS: PredictionPair[] = [
   */
   // move this one up if we don't end up adding a GDP market
   {
-    title:
-      'Will the US enter a recession before 2027? (as measured by Sahm rule)',
+    title: 'Will the US enter a recession before 2027?',
+    description: "Per St. Louis Fed's Sahm rule recession indicator",
     harrisSlug: 'if-harris-wins-will-the-us-enter-a',
     trumpSlug: 'if-trump-wins-will-the-us-enter-a-r',
   },

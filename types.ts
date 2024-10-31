@@ -1,5 +1,6 @@
 export type PredictionPair = {
   title: string
+  description?: string
   harrisSlug: string
   trumpSlug: string
   harrisData?: BinaryMarket
