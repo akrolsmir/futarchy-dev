@@ -15,8 +15,8 @@ const geistMono = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'futarchy.dev: what do the markets say?',
-  description: 'futarchy.dev: what do the markets say?',
+  title: 'Policy Predictions: what do the markets say?',
+  description: 'Policy Predictions: what do the markets say?',
 }
 
 export default function RootLayout({
@@ -34,7 +34,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background font-geist-sans`}
       >
         {children}
       </body>

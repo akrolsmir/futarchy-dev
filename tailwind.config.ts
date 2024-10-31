@@ -12,6 +12,10 @@ const config: Config = {
         background: '#0F172A',
         foreground: '#1E293B',
       },
+      fontFamily: {
+        'geist-sans': ['var(--font-geist-sans)'],
+        'geist-mono': ['var(--font-geist-mono)'],
+      },
     },
   },
   plugins: [],
