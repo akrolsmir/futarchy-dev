@@ -1,6 +1,6 @@
-import { cache } from 'react'
 import Gauges from './Gauges'
 import { PredictionPair } from '@/types'
+// import { data } from '@/data/markets-latest'
 
 // Market data array
 const MARKETS: PredictionPair[] = [
@@ -96,7 +96,7 @@ const MARKETS: PredictionPair[] = [
   */
 ]
 
-async function fetchMarketData() {
+export async function fetchMarketData() {
   const marketPromises = MARKETS.flatMap((market) => [
     fetch(`https://api.manifold.markets/v0/slug/${market.harrisSlug}--cash`),
     fetch(`https://api.manifold.markets/v0/slug/${market.harrisSlug}`),
@@ -118,6 +118,8 @@ async function fetchMarketData() {
 
 export default async function PredictionMarkets() {
   const markets = await fetchMarketData()
+  // Or, if using cached data (eg after the markets have resolved):
+  // const markets = data as unknown as PredictionPair[]
 
   return <Gauges markets={markets} />
 }

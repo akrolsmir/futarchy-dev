@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "npx prettier --write ."
+    "format": "npx prettier --write .",
+    "backup": "bun data/backup.ts"
   },
   "dependencies": {
     "lucide-react": "^0.454.0",
@@ -16,11 +17,12 @@
     "react-dom": "19.0.0-rc-69d4b800-20241021"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@types/bun": "^1.1.12",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "postcss": "^8",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
   }
 }
