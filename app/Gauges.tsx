@@ -54,8 +54,8 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
           style={{
             background: `conic-gradient(
               transparent ${harrisLowerBoundAngle}deg,
-              rgba(59, 130, 246, 0.2) ${harrisLowerBoundAngle}deg,
-              rgba(59, 130, 246, 0.2) ${harrisUpperBoundAngle}deg,
+              rgba(59, 130, 246, 0.4) ${harrisLowerBoundAngle}deg,
+              rgba(59, 130, 246, 0.4) ${harrisUpperBoundAngle}deg,
               transparent ${harrisUpperBoundAngle}deg
             )`,
             borderRadius: '50%',
@@ -69,8 +69,8 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
           style={{
             background: `conic-gradient(
               transparent ${trumpLowerBoundAngle}deg,
-              rgba(239, 68, 68, 0.2) ${trumpLowerBoundAngle}deg,
-              rgba(239, 68, 68, 0.2) ${trumpUpperBoundAngle}deg,
+              rgba(239, 68, 68, 0.4) ${trumpLowerBoundAngle}deg,
+              rgba(239, 68, 68, 0.4) ${trumpUpperBoundAngle}deg,
               transparent ${trumpUpperBoundAngle}deg
             )`,
             borderRadius: '50%',
