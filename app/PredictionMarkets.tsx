@@ -72,14 +72,12 @@ const MARKETS: PredictionPair[] = [
     trumpSlug: 'if-trump-wins-will-he-appoint-anoth',
   },
   */
-  /* this one isn't real money yet
   {
-    title:
-      'Will there be an executive order or legislation focused on AI before the 2026 midterms?',
+    title: 'Will there be major federal policy on AI?',
+    description: 'Executive order or legislation passed before Nov 2026',
     harrisSlug: 'if-harris-is-elected-will-there-be-uve99bjbbo',
     trumpSlug: 'if-trump-is-elected-will-there-be-a-01a15c4aa239',
   },
-  */
   /* this one isn't real money yet
   {
     title: 'Will annual US CO2 emissions be below 4.5 billion tons in 2030?',
