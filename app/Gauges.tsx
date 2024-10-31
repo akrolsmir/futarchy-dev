@@ -69,8 +69,8 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
           style={{
             background: `conic-gradient(
               transparent ${trumpLowerBoundAngle}deg,
-              rgba(239, 68, 68, 0.4) ${trumpLowerBoundAngle}deg,
-              rgba(239, 68, 68, 0.4) ${trumpUpperBoundAngle}deg,
+              rgba(239, 68, 68, 0.3) ${trumpLowerBoundAngle}deg,
+              rgba(239, 68, 68, 0.3) ${trumpUpperBoundAngle}deg,
               transparent ${trumpUpperBoundAngle}deg
             )`,
             borderRadius: '50%',
