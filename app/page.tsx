@@ -1,4 +1,5 @@
 import PredictionMarkets from './PredictionMarkets'
+import { Github } from 'lucide-react'
 
 export const revalidate = 60 // Revalidate every 60 seconds (1 minute)
 
@@ -19,40 +20,53 @@ export default function Page() {
           How accurate is this?{' '}
           <a
             href="https://manifold.markets/about"
-            className="text-blue-400 hover: underline"
+            className="underline hover:decoration-solid decoration-dotted"
             target="_blank"
             rel="noopener noreferrer"
           >
             Better than most pundits
             {/* edit to "Very" if we get enough activity/liquidity to believe that */}
-          </a>.
+          </a>
+          .
         </p>
         <p className="text-sm">
-          Either these predictions are correct or you can make a lot of money.<br />
+          Either these predictions are correct or you can make a lot of money.
+          <br />
           <span className="text-slate-400">
-            (Not financial advice, do your own research; you only make money if you're right)
+            (Not financial advice, do your own research; you only make money if
+            you're right)
           </span>
         </p>
-        <p className="text-sm text-slate-400 mt-12">
-          made with 🇺🇸 by{' '}
+        <div className="flex justify-center items-center gap-2 mt-12">
+          <p className="text-sm text-slate-400">
+            made with 🇺🇸 by{' '}
+            <a
+              href="https://npfoss.com"
+              className="underline hover:decoration-solid decoration-dotted"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Nate Foss
+            </a>{' '}
+            and{' '}
+            <a
+              href="https://manifund.org/Austin"
+              className="underline hover:decoration-solid decoration-dotted"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Austin Chen
+            </a>
+          </p>
           <a
-            href="https://npfoss.com"
-            className="underline"
+            href="https://github.com/akrolsmir/futarchy-dev"
+            className="inline-flex items-center hover:text-white"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Nate Foss
+            <Github className="w-3.5 h-3.5" />
           </a>
-          {' '}and{' '}
-          <a
-            href="https://x.com/akrolsmir"
-            className="underline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Austin Chen
-          </a>
-        </p>
+        </div>
       </div>
     </>
   )
