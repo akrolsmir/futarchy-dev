@@ -46,7 +46,7 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
 
   return (
     <div className="flex flex-col bg-foreground rounded-lg p-4 text-white min-w-[280px]">
-      <h3 className="text-sm mb-6 h-12 leading-tight">{pair.title}</h3>
+      <h3 className="mb-8 h-12 leading-tight font-bold">{pair.title}</h3>
       <div className="relative w-48 h-24 mx-auto">
         {/* Harris confidence interval arc */}
         <div
