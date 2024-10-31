@@ -13,6 +13,8 @@ function DottedLink({
   return (
     <a
       href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       className="underline underline-offset-4 hover:decoration-solid decoration-dotted"
     >
       {children}
