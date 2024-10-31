@@ -122,7 +122,7 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span>Harris {harrisPct}%</span>
+            <span className="underline">Harris {harrisPct}%</span>
           </Link>
         </div>
         <div className="flex items-center">
@@ -133,7 +133,7 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span>Trump {trumpPct}%</span>
+            <span className="underline">Trump {trumpPct}%</span>
           </Link>
         </div>
       </div>
