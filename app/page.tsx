@@ -3,14 +3,35 @@ import { Github } from 'lucide-react'
 
 export const revalidate = 60 // Revalidate every 60 seconds (1 minute)
 
+function DottedLink({
+  href,
+  children,
+}: {
+  href: string
+  children: React.ReactNode
+}) {
+  return (
+    <a
+      href={href}
+      className="underline underline-offset-4 hover:decoration-solid decoration-dotted"
+    >
+      {children}
+    </a>
+  )
+}
+
 export default function Page() {
   return (
     <>
       <h1 className="text-white text-4xl font-bold text-center px-4 py-8 mt-8">
-        How will the election affect you?
+        What will happen under <span className="text-blue-400"> Harris </span>or
+        <span className="text-red-400"> Trump</span>?
       </h1>
       <h2 className="text-slate-300 text-lg text-center px-4">
-        Talk is cheap — here's what people say when money is on the line.
+        Talk is cheap — here's what people are betting on{' '}
+        <DottedLink href="https://www.astralcodexten.com/p/prediction-market-faq">
+          prediction markets
+        </DottedLink>
       </h2>
 
       <PredictionMarkets />
@@ -18,17 +39,22 @@ export default function Page() {
       <div className="text-slate-300 text-center px-4 py-8 mt-8">
         <p className="mb-2">
           How accurate are prediction markets?{' '}
-          <a
-            href="https://manifold.markets/calibration"
-            className="underline hover:decoration-solid decoration-dotted"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <DottedLink href="https://manifold.markets/calibration">
             Better than most pundits
             {/* edit to "Very" if we get enough activity/liquidity to believe that */}
-          </a>
+          </DottedLink>
           .<br />
           Either they're right, or you can make money betting against them.
+          <br />
+          Learn more{' '}
+          <DottedLink href="https://www.astralcodexten.com/p/prediction-market-faq">
+            here
+          </DottedLink>
+          , or see caveats{' '}
+          <DottedLink href="https://dynomight.net/prediction-market-causation/">
+            here
+          </DottedLink>
+          .
         </p>
         {/* <p className="text-sm">
           Either these predictions are correct or you can make a lot of money.
@@ -41,23 +67,10 @@ export default function Page() {
         <div className="flex justify-center items-center gap-2 mt-12">
           <p className="text-sm text-slate-400">
             made with 🇺🇸 by{' '}
-            <a
-              href="https://npfoss.com"
-              className="underline hover:decoration-solid decoration-dotted"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Nate Foss
-            </a>{' '}
-            and{' '}
-            <a
-              href="https://manifund.org/Austin"
-              className="underline hover:decoration-solid decoration-dotted"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <DottedLink href="https://npfoss.com">Nate Foss</DottedLink> and{' '}
+            <DottedLink href="https://manifund.org/Austin">
               Austin Chen
-            </a>
+            </DottedLink>
           </p>
           <a
             href="https://github.com/akrolsmir/futarchy-dev"

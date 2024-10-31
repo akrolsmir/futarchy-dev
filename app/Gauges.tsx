@@ -153,11 +153,10 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
           <div className="w-3 h-3 bg-blue-500 rounded-full mr-1" />
           <Link
             href={pair.harrisData?.url || '#'}
-            className="hover:underline"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span className="underline decoration-dotted">
+            <span className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
               Harris {harrisPct}%
             </span>
           </Link>
@@ -166,11 +165,10 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
           <div className="w-3 h-3 bg-red-500 rounded-full mr-1" />
           <Link
             href={pair.trumpData?.url || '#'}
-            className="hover:underline"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span className="underline decoration-dotted">
+            <span className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
               Trump {trumpPct}%
             </span>
           </Link>
