@@ -80,6 +80,15 @@ const MARKETS: PredictionPair[] = [
     trumpSlug: 'carbon-brief-forecast-if-trump-wins',
   },
   */
+
+  /*
+  other ideas, from Metaculus
+  - china invades taiwan
+  - russia expanded territory in ukraine
+  - 2nd amendment amended
+  - national abortion ban
+  - Iran obtains nuclear weapons
+  */
 ]
 
 async function fetchMarketData() {
