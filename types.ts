@@ -3,7 +3,9 @@ export type PredictionPair = {
   harrisSlug: string
   trumpSlug: string
   harrisData?: BinaryMarket
+  harrisManaData?: BinaryMarket
   trumpData?: BinaryMarket
+  trumpManaData?: BinaryMarket
 }
 
 // Most relevant fields are probability, uniqueBettorCount, volume

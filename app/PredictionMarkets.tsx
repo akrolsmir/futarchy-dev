@@ -84,7 +84,9 @@ const MARKETS: PredictionPair[] = [
 
 async function fetchMarketData() {
   const marketPromises = MARKETS.flatMap((market) => [
+    fetch(`https://api.manifold.markets/v0/slug/${market.harrisSlug}--cash`),
     fetch(`https://api.manifold.markets/v0/slug/${market.harrisSlug}`),
+    fetch(`https://api.manifold.markets/v0/slug/${market.trumpSlug}--cash`),
     fetch(`https://api.manifold.markets/v0/slug/${market.trumpSlug}`),
   ])
 
@@ -93,8 +95,10 @@ async function fetchMarketData() {
 
   return MARKETS.map((market, i) => ({
     ...market,
-    harrisData: data[i * 2],
-    trumpData: data[i * 2 + 1],
+    harrisData: data[i * 4],
+    harrisManaData: data[i * 4 + 1],
+    trumpData: data[i * 4 + 2],
+    trumpManaData: data[i * 4 + 3],
   }))
 }
 

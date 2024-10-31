@@ -143,12 +143,19 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
         <span>
           Vol: $
           {Math.round(
-            (pair.harrisData?.volume || 0) + (pair.trumpData?.volume || 0)
+            (pair.harrisData?.volume || 0) +
+            (pair.harrisManaData?.volume || 0) / 100 +
+            (pair.trumpManaData?.volume || 0) / 100 +
+            (pair.trumpData?.volume || 0)
           )}
         </span>
         <span>
-          {(pair.harrisData?.uniqueBettorCount || 0) +
-            (pair.trumpData?.uniqueBettorCount || 0)}{' '}
+          {
+            (pair.harrisData?.uniqueBettorCount || 0) +
+            (pair.harrisManaData?.uniqueBettorCount || 0) +
+            (pair.trumpManaData?.uniqueBettorCount || 0) +
+            (pair.trumpData?.uniqueBettorCount || 0)
+          }{' '}
           bettors
         </span>
       </div>
