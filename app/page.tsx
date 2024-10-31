@@ -16,14 +16,15 @@ export default function Page() {
 
       <div className="text-slate-300 text-center px-4 py-8 mt-8">
         <p className="mb-2">
-          How accurate are these predictions?{' '}
+          How accurate is this?{' '}
           <a
             href="https://manifold.markets/about"
             className="text-blue-400 hover: underline"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Very
+            Better than most pundits
+            {/* edit to "Very" if we get enough activity/liquidity to believe that */}
           </a>.
         </p>
         <p className="text-sm">
