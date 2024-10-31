@@ -5,7 +5,7 @@ import { PredictionPair } from '@/types'
 // Market data array
 const MARKETS: PredictionPair[] = [
   {
-    title: 'Will the inflation rate in 2025 be below 2.5%? (Current 3.2%)',
+    title: 'Will 2025 inflation be below 2.5%? (Current\u00A03.2%)',
     harrisSlug: 'if-harris-wins-the-election-will-th',
     trumpSlug: 'if-trump-wins-the-election-will-the',
   },
@@ -16,7 +16,7 @@ const MARKETS: PredictionPair[] = [
     trumpSlug: 'if-trump-wins-will-immigration-go-d',
   },
   {
-    title: 'Will there be a ceasefire in Ukraine before the 2026 midterms?',
+    title: 'Will there be a ceasefire in Ukraine before Nov\u00A02026?',
     harrisSlug: 'if-harris-is-elected-will-there-be-1bw27ghde1',
     trumpSlug: 'if-trump-is-elected-will-there-be-a-40ca39e5dcec',
   },
@@ -37,7 +37,7 @@ const MARKETS: PredictionPair[] = [
   },
   */
   {
-    title: 'Will gas prices stay under $4 a gallon before the midterms?',
+    title: 'Will gas prices stay under $4 a gallon through Nov\u00A02026?',
     harrisSlug: 'if-harris-becomes-president-will-ga-rpkm0uqss8',
     trumpSlug: 'if-trump-becomes-president-will-gas',
   },

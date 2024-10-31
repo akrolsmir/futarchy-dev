@@ -168,7 +168,7 @@ export default function Gauges({ markets }: { markets: PredictionPair[] }) {
     <div className="p-4 sm:p-8">
       <div className="max-w-7xl mx-auto flex flex-wrap gap-6 justify-center">
         {markets.map((pair, i) => (
-          <div key={i} className="animate-fadeIn grow basis-80 max-w-[400px]">
+          <div key={i} className="animate-fadeIn grow basis-80 max-w-md">
             <GaugeChart pair={pair} />
           </div>
         ))}
