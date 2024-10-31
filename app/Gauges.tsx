@@ -19,10 +19,26 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
   const trumpAngleFinal = (trumpPct / 100) * 180
   const midpoint = (harrisAngleFinal + trumpAngleFinal) / 2
   // probabilities
-  const harrisUpperBound = Math.min(1, (pair.harrisData?.probability ?? 0) + hurdleRate * (pair.harrisData?.probability ?? 0) / (1 - pTrump))
-  const harrisLowerBound = Math.max(0, (pair.harrisData?.probability ?? 0) - hurdleRate * (1 - (pair.harrisData?.probability ?? 0)) / (1 - pTrump))
-  const trumpUpperBound = Math.min(1, (pair.trumpData?.probability ?? 0) + hurdleRate * (pair.trumpData?.probability ?? 0) / pTrump)
-  const trumpLowerBound = Math.max(0, (pair.trumpData?.probability ?? 0) - hurdleRate * (1 - (pair.trumpData?.probability ?? 0)) / pTrump)
+  const harrisUpperBound = Math.min(
+    1,
+    (pair.harrisData?.probability ?? 0) +
+      (hurdleRate * (pair.harrisData?.probability ?? 0)) / (1 - pTrump)
+  )
+  const harrisLowerBound = Math.max(
+    0,
+    (pair.harrisData?.probability ?? 0) -
+      (hurdleRate * (1 - (pair.harrisData?.probability ?? 0))) / (1 - pTrump)
+  )
+  const trumpUpperBound = Math.min(
+    1,
+    (pair.trumpData?.probability ?? 0) +
+      (hurdleRate * (pair.trumpData?.probability ?? 0)) / pTrump
+  )
+  const trumpLowerBound = Math.max(
+    0,
+    (pair.trumpData?.probability ?? 0) -
+      (hurdleRate * (1 - (pair.trumpData?.probability ?? 0))) / pTrump
+  )
 
   const [harrisAngle, setHarrisAngle] = useState(midpoint)
   const [trumpAngle, setTrumpAngle] = useState(midpoint)
@@ -42,7 +58,14 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
     }, 100)
 
     return () => clearTimeout(timer)
-  }, [harrisAngleFinal, trumpAngleFinal, harrisUpperBoundAngle, harrisLowerBoundAngle, trumpUpperBoundAngle, trumpLowerBoundAngle])
+  }, [
+    harrisAngleFinal,
+    trumpAngleFinal,
+    harrisUpperBoundAngle,
+    harrisLowerBoundAngle,
+    trumpUpperBoundAngle,
+    trumpLowerBoundAngle,
+  ])
 
   return (
     <div className="flex flex-col bg-foreground rounded-lg p-4 text-white min-w-[280px]">
@@ -81,23 +104,32 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
         {/* put a full-opacity trump needle first, then a half-opacity one on top; so it looks normal when not overlapping, but don't fully cover Harris when it does overlap */}
         <div
           className="absolute bottom-1 left-1/2 w-1 h-20 bg-red-500 origin-bottom transition-transform duration-1000 ease-out"
-          style={{ transform: `translate(-50%, 0) rotate(${trumpAngle - 90}deg)` }}
+          style={{
+            transform: `translate(-50%, 0) rotate(${trumpAngle - 90}deg)`,
+          }}
         />
 
         {/* Harris needle (blue) */}
         <div
           className="absolute bottom-1 left-1/2 w-1 h-20 bg-blue-500 origin-bottom transition-transform duration-1000 ease-out"
-          style={{ transform: `translate(-50%, 0) rotate(${harrisAngle - 90}deg)` }}
+          style={{
+            transform: `translate(-50%, 0) rotate(${harrisAngle - 90}deg)`,
+          }}
         />
 
         {/* Trump needle (red) */}
         <div
           className="absolute bottom-1 left-1/2 w-1 h-20 bg-red-500/50 origin-bottom transition-transform duration-1000 ease-out"
-          style={{ transform: `translate(-50%, 0) rotate(${trumpAngle - 90}deg)` }}
+          style={{
+            transform: `translate(-50%, 0) rotate(${trumpAngle - 90}deg)`,
+          }}
         />
 
         {/* Gauge background */}
-        <div className="absolute w-full h-full rounded-t-full border-4 border-gray-700" style={{ marginTop: '-2px' }} />
+        <div
+          className="absolute w-full h-full rounded-t-full border-4 border-gray-700"
+          style={{ marginTop: '-2px' }}
+        />
 
         {/* Percentage difference */}
         <div
@@ -122,7 +154,9 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span className="underline decoration-dotted">Harris {harrisPct}%</span>
+            <span className="underline decoration-dotted">
+              Harris {harrisPct}%
+            </span>
           </Link>
         </div>
         <div className="flex items-center">
@@ -133,7 +167,9 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span className="underline decoration-dotted">Trump {trumpPct}%</span>
+            <span className="underline decoration-dotted">
+              Trump {trumpPct}%
+            </span>
           </Link>
         </div>
       </div>
@@ -144,18 +180,16 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
           Vol: $
           {Math.round(
             (pair.harrisData?.volume || 0) +
-            (pair.harrisManaData?.volume || 0) / 100 +
-            (pair.trumpManaData?.volume || 0) / 100 +
-            (pair.trumpData?.volume || 0)
+              (pair.harrisManaData?.volume || 0) / 100 +
+              (pair.trumpManaData?.volume || 0) / 100 +
+              (pair.trumpData?.volume || 0)
           )}
         </span>
         <span>
-          {
-            (pair.harrisData?.uniqueBettorCount || 0) +
+          {(pair.harrisData?.uniqueBettorCount || 0) +
             (pair.harrisManaData?.uniqueBettorCount || 0) +
             (pair.trumpManaData?.uniqueBettorCount || 0) +
-            (pair.trumpData?.uniqueBettorCount || 0)
-          }{' '}
+            (pair.trumpData?.uniqueBettorCount || 0)}{' '}
           bettors
         </span>
       </div>
