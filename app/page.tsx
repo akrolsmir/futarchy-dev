@@ -10,16 +10,16 @@ export default function Page() {
         How will the election affect you?
       </h1>
       <h2 className="text-slate-300 text-lg text-center px-4">
-        Talk is cheap. Here's what people say when there's money on the line.
+        Talk is cheap — here's what people say when money is on the line.
       </h2>
 
       <PredictionMarkets />
 
       <div className="text-slate-300 text-center px-4 py-8 mt-8">
         <p className="mb-2">
-          How accurate is this?{' '}
+          How accurate are prediction markets?{' '}
           <a
-            href="https://manifold.markets/about"
+            href="https://manifold.markets/calibration"
             className="underline hover:decoration-solid decoration-dotted"
             target="_blank"
             rel="noopener noreferrer"
@@ -27,16 +27,17 @@ export default function Page() {
             Better than most pundits
             {/* edit to "Very" if we get enough activity/liquidity to believe that */}
           </a>
-          .
+          .<br />
+          Either they're right, or you can make money betting against them.
         </p>
-        <p className="text-sm">
+        {/* <p className="text-sm">
           Either these predictions are correct or you can make a lot of money.
           <br />
           <span className="text-slate-400">
             (Not financial advice, do your own research; you only make money if
             you're right)
           </span>
-        </p>
+        </p> */}
         <div className="flex justify-center items-center gap-2 mt-12">
           <p className="text-sm text-slate-400">
             made with 🇺🇸 by{' '}
