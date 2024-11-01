@@ -142,7 +142,7 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
         >
           <div className="text-2xl">+{difference}%</div>
           <div className="text-xs whitespace-nowrap">
-            if {isHarrisHigher ? 'Harris' : 'Trump'}
+            chance if {isHarrisHigher ? 'Harris' : 'Trump'}
           </div>
         </div>
       </div>
