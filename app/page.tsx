@@ -30,10 +30,7 @@ export default function Page() {
         <span className="text-red-400"> Trump</span>?
       </h1>
       <h2 className="text-slate-300 text-lg text-center px-4">
-        Talk is cheap — here's what people are betting on{' '}
-        <DottedLink href="https://www.astralcodexten.com/p/prediction-market-faq">
-          prediction markets
-        </DottedLink>
+        Talk is cheap — here's what the betting markets say
       </h2>
 
       <PredictionMarkets />
