@@ -17,7 +17,18 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: 'Policy Predictions: what do the markets say?',
   description: 'Policy Predictions: what do the markets say?',
-}
+  openGraph: {
+    type: "website",
+    description: 'Policy Predictions: what do the markets say?',
+    images: [
+      {
+        url: "/open-graph.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+};
 
 export default function RootLayout({
   children,
