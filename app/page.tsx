@@ -1,4 +1,5 @@
 import PredictionMarkets from './PredictionMarkets'
+import EmailSubscribeForm from './EmailSubscribeForm'
 import { Github } from 'lucide-react'
 
 export const revalidate = 60 // Revalidate every 60 seconds (1 minute)
@@ -35,7 +36,7 @@ export default function Page() {
 
       <PredictionMarkets />
 
-      <div className="text-slate-300 text-center px-4 py-8 mt-8">
+      <div className="text-slate-300 text-center px-4 pb-8 mt-2">
         <p className="mb-2">
           How accurate are prediction markets?{' '}
           <DottedLink href="https://manifold.markets/calibration">
@@ -63,6 +64,9 @@ export default function Page() {
             you're right)
           </span>
         </p> */}
+
+        <EmailSubscribeForm />
+
         <div className="flex justify-center items-center gap-2 mt-12">
           <p className="text-sm text-slate-400">
             made with 🇺🇸 by{' '}

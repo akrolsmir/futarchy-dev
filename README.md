@@ -2,7 +2,13 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-One time setup: `bun install`
+### first time setup
+
+`bun install`
+
+create .env.local with supabase api key
+
+### every time
 
 First, run the development server:
 
