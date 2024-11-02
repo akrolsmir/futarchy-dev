@@ -188,10 +188,10 @@ function GaugeChart({ pair }: { pair: PredictionPair }) {
           traded
         </span>
         <span>
-          {(pair.harrisData?.uniqueBettorCount || 0) +
-            (pair.harrisManaData?.uniqueBettorCount || 0) +
-            (pair.trumpManaData?.uniqueBettorCount || 0) +
-            (pair.trumpData?.uniqueBettorCount || 0)}{' '}
+          {Math.max(pair.harrisData?.uniqueBettorCount || 0,
+            pair.harrisManaData?.uniqueBettorCount || 0,
+            pair.trumpManaData?.uniqueBettorCount || 0,
+            pair.trumpData?.uniqueBettorCount || 0)}{' '}
           traders
         </span>
       </div>
