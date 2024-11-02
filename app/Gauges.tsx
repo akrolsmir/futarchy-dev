@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react'
 
 // const hurdleRate = 0.0541 // 5% annualized after fees
 const hurdleRate = 0.058 // 10% annualized after fees
-const pTrump = 0.61 // todo grab programmatically
+const pTrump = 0.55 // todo grab programmatically
 
 // Component to render a single gauge
 function GaugeChart({ pair }: { pair: PredictionPair }) {
