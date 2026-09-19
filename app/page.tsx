@@ -65,7 +65,7 @@ export default function Page() {
           </span>
         </p> */}
 
-        <EmailSubscribeForm />
+        {/* <EmailSubscribeForm /> */}
 
         <div className="flex justify-center items-center gap-2 mt-12">
           <p className="text-sm text-slate-400">
